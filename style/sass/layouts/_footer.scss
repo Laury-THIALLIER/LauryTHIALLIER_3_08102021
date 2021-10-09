@@ -1,0 +1,35 @@
+.footer {
+    padding: 30px 20px;
+    color: white;
+    background-color: #353535;
+    h6 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    ul {    
+        list-style: none;
+        padding: 0px;
+        li {
+            color: white;
+            margin-bottom: 8px;
+            i {
+                margin-right: 8px;
+                font-size: 16px;
+                &.resize {
+                    font-size: 11px;
+                }
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+        li:last-child {
+            margin-bottom: 0px;
+        }
+    }
+    &--bold {
+        font-weight: 700;
+    }
+}
