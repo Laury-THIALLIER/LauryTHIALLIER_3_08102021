@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Laury-THIALLIER/LauryTHIALLIER_3_08102021">
-    <img src="img/readme/ohmyfood@2x.svg" alt="Logo" width="300" height="auto">
+    <img src="img/readme/ohmyfood@2x-white.svg" alt="Logo" width="300" height="auto">
   </a>
 
   <h3 align="center">OH MY FOOD</h3>
