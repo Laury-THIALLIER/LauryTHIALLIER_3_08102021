@@ -1,6 +1,6 @@
 /* Header */
 
-.logo {
+.header {
     display: flex;
     justify-content: center;
     position: relative;
@@ -22,7 +22,7 @@
         height: 50px;
         width: 140px;
         font-size: 17px;
-        font-weight: 400;
+        font-weight: 700;
         color: #353535;
         background-color: rgba(255, 255, 255, 0);
         &:focus {
@@ -59,14 +59,16 @@
 /* Fonctionnement */
 
 .functioning {
-    margin: 50px 20px;
-    div {
+    padding: 50px 20px;
+    h2 {
+        font-size: 24px;
+    }
+    > div {
         display: flex;
         align-items: center;
-        padding-left: -50px;
         background-color: #F6F6F6;
         border-radius: 20px;
-        margin: 20px 0px;
+        margin: 20px 0px 20px 10px;
         padding: 10px;
         box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
     }
@@ -74,7 +76,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: -20px;
+        margin-left: -22px;
         background-color: $primary-color;
         color: white;
         width: 25px;
@@ -82,13 +84,68 @@
         border-radius: 50px;
         font-size: 14px;
     }
-    i {
+    &__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0px 30px;
         font-size: 20px;
         color: #7E7E7E;
+        height: 30px;
+        width: 30px;
     }
     p:last-child {
         font-size: 16px;
         font-weight: 700;
+    }
+}
+
+/* Restaurants */
+
+.restaurants {
+    background-color: #F6F6F6;
+    padding: 50px 20px;
+    h2 {
+        margin-top: 0px;
+        font-size: 24px;
+    }
+    &__card {
+        background-color: white;
+        border-radius: 15px;
+        position: relative;
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+        img {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px 15px 0px 0px;
+            object-fit: cover;
+        }
+        > p {
+            position: absolute;
+            color: #008766;
+            font-weight: 700;
+            background-color: $tertiary-color;
+            padding: 10px 15px;
+            border-radius: 3px;
+            right: 15px;
+        }  
+    }
+    &__infos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        h3 {
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin: 0px;
+            font-size: 18px;
+        }
+        i {
+            font-size: 24px;
+        }
     }
 }
