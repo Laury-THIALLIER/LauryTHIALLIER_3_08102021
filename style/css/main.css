@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0px;
   padding: 0px;
@@ -11,6 +12,7 @@ body, input {
   font-family: 'Shrikhand', cursive;
 }
 
+/* Header */
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,4 +56,33 @@ body, input {
 
 .search-bar input:focus {
   outline: none;
+}
+
+/* Présentation */
+.presentation {
+  padding: 35px 45px 75px 45px;
+  text-align: center;
+  background-color: #F6F6F6;
+}
+
+.presentation h2 {
+  margin: 0px;
+}
+
+.presentation p {
+  font-weight: 300;
+  color: #4d4c4c;
+  margin-bottom: 40px;
+}
+
+.presentation a {
+  text-decoration: none;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
+  padding: 15px 20px;
+  border-radius: 50px;
+  margin-bottom: 500px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.4);
 }
