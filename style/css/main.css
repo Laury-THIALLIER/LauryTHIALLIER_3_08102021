@@ -8,7 +8,7 @@ body, input {
   font-family: 'Roboto', sans-serif;
 }
 
-.logo {
+.logo, .name {
   font-family: 'Shrikhand', cursive;
 }
 
@@ -271,4 +271,128 @@ body, input {
 
 .restaurants__infos i {
   font-size: 24px;
+}
+
+/* Menu */
+.menu img {
+  width: 100%;
+}
+
+.menu__order {
+  position: relative;
+  background-color: #F6F6F6;
+  margin-top: -80px;
+  width: 100%;
+  border-radius: 40px 40px 0px 0px;
+}
+
+.menu__order > div:first-child {
+  padding: 10px 20px 0px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 30px;
+}
+
+.menu__order > div:first-child h2, .menu__order > div:first-child i {
+  font-size: 28px;
+  margin: 0px;
+}
+
+.menu__order .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.menu__order .button a {
+  text-decoration: none;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
+  padding: 15px 45px;
+  margin: 50px;
+  border-radius: 50px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+}
+
+.menu__category {
+  padding: 0px 20px;
+}
+
+.menu__category h3 {
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.menu__category::before {
+  content: "";
+  position: absolute;
+  margin-top: 25px;
+  width: 45px;
+  height: 3px;
+  background-color: #99e2d0;
+}
+
+.menu__card {
+  text-decoration: none;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.menu__card > div {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menu__card > div h4 {
+  margin: 0px;
+  margin-bottom: 5px;
+  font-size: 19px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.menu__card > div p {
+  margin: 0px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.menu__card > p {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-weight: 700;
+  width: 10%;
+  padding-left: 10px;
 }
