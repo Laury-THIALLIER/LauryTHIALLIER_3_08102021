@@ -273,9 +273,11 @@ body, input {
   font-size: 24px;
 }
 
-/* Menu */
 .menu img {
   width: 100%;
+  height: 35ch;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .menu__order {
