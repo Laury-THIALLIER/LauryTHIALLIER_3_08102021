@@ -2,6 +2,9 @@
     padding: 30px 20px;
     color: white;
     background-color: #353535;
+    @media screen and (min-width: 1400px) {
+        padding: 50px 400px;
+    }
     h6 {
         margin-top: 0px;
         margin-bottom: 20px;
@@ -10,6 +13,11 @@
     ul {    
         list-style: none;
         padding: 0px;
+        @media screen and (min-width: 1400px) {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
         li {
             color: white;
             margin-bottom: 8px;

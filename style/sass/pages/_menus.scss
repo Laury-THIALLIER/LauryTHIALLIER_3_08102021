@@ -52,6 +52,13 @@
             background-color: #99e2d0;
         }
     }
+    &__cards {
+        @media screen and (min-width: 1400px) {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
     &__card {
         text-decoration: none;
         color: black;
@@ -62,8 +69,10 @@
         padding: 15px;
         margin-bottom: 15px;
         box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+        @media screen and (min-width: 1400px) {
+            width: 31%;
+        }
         > div {
-            width: 100%;
             white-space: nowrap;
             overflow: hidden;
             h4 {
@@ -85,7 +94,6 @@
             display: flex;
             align-items: flex-end;
             font-weight: 700;
-            width: 10%;
             padding-left: 10px;
         }
     }

@@ -71,6 +71,12 @@ body, input {
   background-color: #353535;
 }
 
+@media screen and (min-width: 1400px) {
+  .footer {
+    padding: 50px 400px;
+  }
+}
+
 .footer h6 {
   margin-top: 0px;
   margin-bottom: 20px;
@@ -80,6 +86,18 @@ body, input {
 .footer ul {
   list-style: none;
   padding: 0px;
+}
+
+@media screen and (min-width: 1400px) {
+  .footer ul {
+    margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .footer ul li {
@@ -141,6 +159,12 @@ body, input {
 /* Fonctionnement */
 .functioning {
   padding: 50px 20px;
+}
+
+@media screen and (min-width: 1400px) {
+  .functioning {
+    padding: 50px 400px;
+  }
 }
 
 .functioning h2 {
@@ -209,9 +233,28 @@ body, input {
   padding: 50px 20px;
 }
 
+@media screen and (min-width: 1400px) {
+  .restaurants {
+    padding: 50px 400px;
+  }
+}
+
 .restaurants h2 {
   margin-top: 0px;
   font-size: 24px;
+}
+
+@media screen and (min-width: 1600px) {
+  .restaurants__cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .restaurants__card {
@@ -221,6 +264,12 @@ body, input {
   margin-bottom: 20px;
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 1600px) {
+  .restaurants__card {
+    width: 49%;
+  }
 }
 
 .restaurants__card img {
@@ -348,6 +397,19 @@ body, input {
   background-color: #99e2d0;
 }
 
+@media screen and (min-width: 1400px) {
+  .menu__cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .menu__card {
   text-decoration: none;
   color: black;
@@ -365,8 +427,13 @@ body, input {
           box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
+@media screen and (min-width: 1400px) {
+  .menu__card {
+    width: 31%;
+  }
+}
+
 .menu__card > div {
-  width: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -395,6 +462,5 @@ body, input {
       -ms-flex-align: end;
           align-items: flex-end;
   font-weight: 700;
-  width: 10%;
   padding-left: 10px;
 }
