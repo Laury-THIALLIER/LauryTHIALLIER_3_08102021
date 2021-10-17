@@ -31,6 +31,10 @@
             a {
                 text-decoration: none;
                 color: white;
+                transition-duration: 0.2s;
+                &:hover {
+                    color: $secondary-color;
+                }
             }
         }
         li:last-child {

@@ -13,15 +13,10 @@ body, input {
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   position: relative;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .header h1 {
@@ -37,15 +32,9 @@ body, input {
 }
 
 .search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: #EAEAEA;
   color: #353535;
 }
@@ -91,12 +80,8 @@ body, input {
 @media screen and (min-width: 1400px) {
   .footer ul {
     margin-top: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 }
 
@@ -117,6 +102,11 @@ body, input {
 .footer ul li a {
   text-decoration: none;
   color: white;
+  transition-duration: 0.2s;
+}
+
+.footer ul li a:hover {
+  color: #FF79DA;
 }
 
 .footer ul li:last-child {
@@ -125,6 +115,70 @@ body, input {
 
 .footer--bold {
   font-weight: 700;
+}
+
+/* Loading spinner */
+.home-header, .home-main, .home-footer {
+  animation: page 2s ease-in-out;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  animation: no-loader 2s ease-in-out;
+  visibility: hidden;
+}
+
+.loading .loader {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  border-radius: 50%;
+  animation: loading .7s ease-in-out infinite alternate;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg) scale(0.5);
+  }
+  to {
+    transform: rotate(360deg) scale(1.25);
+  }
+}
+
+@keyframes no-loader {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes page {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Présentation */
@@ -147,13 +201,36 @@ body, input {
 .presentation a {
   text-decoration: none;
   color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(#FF79DA, #9356DC);
   padding: 15px 20px;
   border-radius: 50px;
   margin-bottom: 500px;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  transition-duration: 0.2s;
+}
+
+.presentation a:hover {
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.presentation a:hover::after {
+  opacity: 0.15;
+}
+
+.presentation a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50px;
+  background-color: white;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.2s;
 }
 
 /* Fonctionnement */
@@ -172,30 +249,47 @@ body, input {
 }
 
 .functioning > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background-color: #F6F6F6;
   border-radius: 20px;
   margin: 20px 0px 20px 10px;
   padding: 10px;
-  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.functioning > div .functioning__img i {
+  transition: .2s;
+}
+
+.functioning > div:hover .functioning__img i {
+  color: #9356DC;
+}
+
+.functioning > div:hover::after {
+  opacity: 0.5;
+}
+
+.functioning > div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 20px;
+  background-color: #e4d5f6;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .2s;
 }
 
 .functioning p:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-left: -22px;
   background-color: #9356DC;
   color: white;
@@ -206,15 +300,9 @@ body, input {
 }
 
 .functioning__img {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   margin: 0px 30px;
   font-size: 20px;
   color: #7E7E7E;
@@ -246,14 +334,9 @@ body, input {
 
 @media screen and (min-width: 1600px) {
   .restaurants__cards {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
@@ -262,8 +345,12 @@ body, input {
   border-radius: 15px;
   position: relative;
   margin-bottom: 20px;
-  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: .3s ease-in-out;
+}
+
+.restaurants__card:hover {
+  transform: scale(1.02);
 }
 
 @media screen and (min-width: 1600px) {
@@ -276,8 +363,7 @@ body, input {
   width: 100%;
   height: 200px;
   border-radius: 15px 15px 0px 0px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .restaurants__card > p {
@@ -296,15 +382,9 @@ body, input {
 }
 
 .restaurants__infos {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding: 15px;
 }
 
@@ -318,15 +398,58 @@ body, input {
   font-size: 18px;
 }
 
-.restaurants__infos i {
-  font-size: 24px;
+.restaurants form {
+  position: absolute;
+  right: 50px;
+  bottom: 55px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.restaurants form .checkbox {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  appearance: none;
+  border: none;
+  position: absolute;
+  z-index: 30;
+  border-radius: 15px;
+}
+
+.restaurants form .checkbox:checked {
+  background: rgba(0, 0, 0, 0);
+}
+
+.restaurants form .checkbox:checked + i.far {
+  opacity: 0;
+}
+
+.restaurants form i {
+  position: absolute;
+}
+
+.restaurants form i.far {
+  color: black;
+  z-index: 20;
+  background-color: white;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.restaurants form i.fas {
+  display: flex;
+  background: linear-gradient(#FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  color: transparent;
+  z-index: 10;
 }
 
 .menu img {
   width: 100%;
   height: 35ch;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .menu__order {
@@ -339,15 +462,9 @@ body, input {
 
 .menu__order > div:first-child {
   padding: 10px 20px 0px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 30px;
 }
 
@@ -356,26 +473,93 @@ body, input {
   margin: 0px;
 }
 
-.menu__order .button {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.menu__order > div:first-child form {
+  position: absolute;
+  right: 50px;
+  top: 35px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.menu__order > div:first-child form .checkbox {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  appearance: none;
+  border: none;
+  position: absolute;
+  z-index: 30;
+  border-radius: 15px;
+}
+
+.menu__order > div:first-child form .checkbox:checked {
+  background: rgba(0, 0, 0, 0);
+}
+
+.menu__order > div:first-child form .checkbox:checked + i.far {
+  opacity: 0;
+}
+
+.menu__order > div:first-child form i {
+  position: absolute;
+}
+
+.menu__order > div:first-child form i.far {
+  color: black;
+  z-index: 20;
+  background-color: #F6F6F6;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.menu__order > div:first-child form i.fas {
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  background: linear-gradient(#FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  color: transparent;
+  z-index: 10;
+}
+
+.menu__order .button {
+  display: flex;
+  justify-content: center;
 }
 
 .menu__order .button a {
   text-decoration: none;
   color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(#FF79DA, #9356DC);
   padding: 15px 45px;
   margin: 50px;
   border-radius: 50px;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
-          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
   font-size: 18px;
+  position: relative;
+  z-index: 1;
+  transition-duration: 0.2s;
+}
+
+.menu__order .button a:hover {
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.menu__order .button a:hover::after {
+  opacity: 0.15;
+}
+
+.menu__order .button a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50px;
+  background-color: white;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s;
 }
 
 .menu__category {
@@ -399,32 +583,50 @@ body, input {
 
 @media screen and (min-width: 1400px) {
   .menu__cards {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
 .menu__card {
+  position: relative;
   text-decoration: none;
   color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   background-color: white;
   border-radius: 20px;
-  padding: 15px;
   margin-bottom: 15px;
-  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.menu__card.fadein1 {
+  animation-duration: .5s;
+  animation-delay: 0s;
+  animation-name: fadein;
+  animation-fill-mode: both;
+}
+
+.menu__card.fadein2 {
+  animation-duration: .5s;
+  animation-delay: .1s;
+  animation-name: fadein;
+  animation-fill-mode: both;
+}
+
+.menu__card.fadein3 {
+  animation-duration: .5s;
+  animation-delay: .2s;
+  animation-name: fadein;
+  animation-fill-mode: both;
+}
+
+.menu__card.fadein4 {
+  animation-duration: .5s;
+  animation-delay: .3s;
+  animation-name: fadein;
+  animation-fill-mode: both;
 }
 
 @media screen and (min-width: 1400px) {
@@ -433,12 +635,14 @@ body, input {
   }
 }
 
-.menu__card > div {
+.menu__card > div:first-child {
   white-space: nowrap;
   overflow: hidden;
+  width: 90%;
+  padding: 15px;
 }
 
-.menu__card > div h4 {
+.menu__card > div:first-child h4 {
   margin: 0px;
   margin-bottom: 5px;
   font-size: 19px;
@@ -446,7 +650,7 @@ body, input {
   overflow: hidden;
 }
 
-.menu__card > div p {
+.menu__card > div:first-child p {
   margin: 0px;
   font-weight: 300;
   text-overflow: ellipsis;
@@ -455,12 +659,47 @@ body, input {
 
 .menu__card > p {
   margin: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  width: 10%;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
   font-weight: 700;
   padding-left: 10px;
+  padding: 15px;
+}
+
+.menu__card:hover .check-animation {
+  width: 80px;
+}
+
+.menu__card:hover .check-animation i {
+  transform: rotate(360deg);
+}
+
+.menu__card .check-animation {
+  background-color: #99E2D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0px;
+  overflow: hidden;
+  transition: width 1s;
+  text-align: center;
+}
+
+.menu__card .check-animation i {
+  color: white;
+  font-size: 23px;
+  transform: rotate(0deg);
+  transition: ease .5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -20,6 +20,47 @@
                 font-size: 28px;
                 margin: 0px;
             }
+            form {
+                position: absolute;
+                right: 50px;
+                top: 35px;
+                font-size: 25px;
+                cursor: pointer;
+                .checkbox {
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                    background: rgba(0,0,0,0);
+                    appearance: none;
+                    border: none;
+                    position: absolute;
+                    z-index: 30;
+                    border-radius: 15px;
+                    &:checked {
+                        background: rgba(0,0,0,0);
+                        + i.far {
+                            opacity: 0;
+                        }
+                    }
+                }
+                i {
+                    position: absolute;
+                    &.far {
+                        color: black;
+                        z-index: 20;
+                        background-color: #F6F6F6;
+                        opacity: 1;
+                        transition: opacity .3s;
+                    }
+                    &.fas {
+                        display: flex;
+                        background: linear-gradient($secondary-color, $primary-color);
+                        -webkit-background-clip: text;
+                        color: transparent;
+                        z-index: 10;
+                    }
+                }
+            }
         }
         .button {
             display: flex;
@@ -27,12 +68,34 @@
             a {
                 text-decoration: none;
                 color: white;
-                background: linear-gradient($secondary-color, $primary-color);
+                background: $gradient-color;
                 padding: 15px 45px;
                 margin: 50px;
                 border-radius: 50px;
                 box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
                 font-size: 18px;
+                position: relative;
+                z-index: 1;
+                transition-duration: 0.2s;
+                &:hover { 
+                    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+                    &::after {
+                        opacity: 0.15;
+                    }
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;  
+                    left: 0;
+                    border-radius: 50px;
+                    background-color: white;
+                    opacity: 0;
+                    z-index: -1;
+                    transition: opacity 0.2s;
+                }
             }
         }
     }
@@ -60,21 +123,47 @@
         }
     }
     &__card {
+        position: relative;
         text-decoration: none;
         color: black;
         display: flex;
-        justify-content: space-between;
         background-color: white;
         border-radius: 20px;
-        padding: 15px;
         margin-bottom: 15px;
+        overflow: hidden;
         box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+        &.fadein1 {
+            animation-duration: .5s;
+            animation-delay: 0s;
+            animation-name: fadein;
+            animation-fill-mode: both;
+        }
+        &.fadein2 {
+            animation-duration: .5s;
+            animation-delay: .1s;
+            animation-name: fadein;
+            animation-fill-mode: both;
+        }
+        &.fadein3 {
+            animation-duration: .5s;
+            animation-delay: .2s;
+            animation-name: fadein;
+            animation-fill-mode: both;
+        }
+        &.fadein4 {
+            animation-duration: .5s;
+            animation-delay: .3s;
+            animation-name: fadein;
+            animation-fill-mode: both;
+        }
         @media screen and (min-width: 1400px) {
             width: 31%;
         }
-        > div {
+        > div:first-child {
             white-space: nowrap;
             overflow: hidden;
+            width: 90%;
+            padding: 15px;
             h4 {
                 margin: 0px;
                 margin-bottom: 5px;
@@ -91,10 +180,46 @@
         }
         > p {
             margin: 0px;
+            width: 10%;
             display: flex;
+            justify-content: flex-end;
             align-items: flex-end;
             font-weight: 700;
             padding-left: 10px;
+            padding: 15px;
         }
+    &:hover .check-animation {
+        width: 80px;
+        i {
+            transform: rotate(360deg);
+        }
+    }
+
+    .check-animation {
+        background-color: $tertiary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 0px;
+        overflow: hidden;
+        transition: width 1s;
+        text-align: center;
+        i {
+            color: white;
+            font-size: 23px;
+            transform: rotate(0deg);
+            transition: ease .5s;
+        }
+    }
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    to { 
+        opacity: 1 
     }
 }

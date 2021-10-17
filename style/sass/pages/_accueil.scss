@@ -1,3 +1,72 @@
+/* Loading spinner */
+
+.home-header, .home-main, .home-footer {
+    animation: page 2s ease-in-out;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    animation: no-loader 2s ease-in-out;
+    visibility: hidden;
+    .loader {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(#FF79DA, #9356DC);
+        border-radius: 50%;
+        animation: loading .7s ease-in-out infinite alternate;
+    }
+}
+  
+@keyframes loading {
+    from {
+        transform: rotate(0deg) scale(0.5);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.25);
+    }
+}
+
+@keyframes no-loader {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes page {
+    0% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Présentation */
 
 .presentation {
@@ -15,11 +84,33 @@
     a {
         text-decoration: none;
         color: white;
-        background: linear-gradient($secondary-color, $primary-color);
+        background: $gradient-color;
         padding: 15px 20px;
         border-radius: 50px;
         margin-bottom: 500px;
         box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
+        transition-duration: 0.2s;
+        &:hover { 
+            box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+            &::after {
+                opacity: 0.15;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;  
+            left: 0;
+            border-radius: 50px;
+            background-color: white;
+            opacity: 0;
+            z-index: 2;
+            transition: opacity 0.2s;
+        }
     }
 }
 
@@ -41,6 +132,32 @@
         margin: 20px 0px 20px 10px;
         padding: 10px;
         box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        .functioning__img i {
+            transition: .2s;
+        }
+        &:hover { 
+            .functioning__img i {
+                color: $primary-color;
+            }
+            &::after {
+                opacity: 0.5;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;  
+            left: 0;
+            border-radius: 20px;
+            background-color: lighten($primary-color, 30%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity .2s;
+        }
     }
     p:first-child {
         display: flex;
@@ -94,7 +211,11 @@
         border-radius: 15px;
         position: relative;
         margin-bottom: 20px;
-        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);    
+	    transition: .3s ease-in-out;
+        &:hover {
+            transform: scale(1.02);
+        }        
         @media screen and (min-width: 1600px) {
             width: 49%;
         }
@@ -131,8 +252,46 @@
             margin: 0px;
             font-size: 18px;
         }
+    }
+    form {
+        position: absolute;
+        right: 50px;
+        bottom: 55px;
+        font-size: 25px;
+        cursor: pointer;
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background: rgba(0,0,0,0);
+            appearance: none;
+            border: none;
+            position: absolute;
+            z-index: 30;
+            border-radius: 15px;
+            &:checked {
+                background: rgba(0,0,0,0);
+                + i.far {
+                    opacity: 0;
+                }
+            }
+        }
         i {
-            font-size: 24px;
+            position: absolute;
+            &.far {
+                color: black;
+                z-index: 20;
+                background-color: white;
+                opacity: 1;
+                transition: opacity .3s;
+            }
+            &.fas {
+                display: flex;
+                background: linear-gradient($secondary-color, $primary-color);
+                -webkit-background-clip: text;
+                color: transparent;
+                z-index: 10;
+            }
         }
     }
 }
